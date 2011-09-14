@@ -1,0 +1,6 @@
+[submodule "engine"]
+	path = engine
+	url = git@github.com:fsw/jsArmyCalc.git
+[submodule "twrs"]
+	path = twrs
+	url = git@github.com:fsw/twr3examples.git
