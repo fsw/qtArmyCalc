@@ -1,6 +1,7 @@
 #include "dialogversioncheck.h"
 #include "ui_dialogversioncheck.h"
 
+
 DialogVersionCheck::DialogVersionCheck(MainWindow *parent) :
     QDialog(parent),
     ui(new Ui::DialogVersionCheck)
@@ -87,6 +88,7 @@ void DialogVersionCheck::engineDownloadProgress(qint64 bytesReceived, qint64 byt
 
 void DialogVersionCheck::engineDownloadFinished()
 {
+    MainWindow* mw = ((MainWindow *)this->parentWidget());
 
     if (currentDownload->error()) {
         ui->progressBar->setVisible( false );
@@ -94,7 +96,12 @@ void DialogVersionCheck::engineDownloadFinished()
         ui->label_error->setText(currentDownload->errorString());
     } else {
 
-        currentDownload->readAll();
+        QFile file( mw->filesPath + "engine.zip" );
+        file.open(QIODevice::WriteOnly);
+        file.write(currentDownload->readAll());
+        file.close();
+                
+
 
         ui->progressBar->setVisible( false );
         ui->finishUpdateButton->setVisible( true );
@@ -109,5 +116,6 @@ void DialogVersionCheck::on_finishUpdateButton_clicked()
 
     this->accept();
     MainWindow* mw = ((MainWindow *)this->parentWidget());
+    mw->unzipEngine();
     mw->reloadEngine();
 }

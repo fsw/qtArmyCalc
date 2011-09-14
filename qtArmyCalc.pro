@@ -6,10 +6,17 @@ QT += network \
     xml
 TARGET = qtArmyCalc
 TEMPLATE = app
-INCLUDEPATH += libs/libmaia
-LIBS += libs/libmaia/libmaia.a
+INCLUDEPATH += libs/libmaia \
+    libs/quazip/quazip
+
+LIBS += libs/libmaia/libmaia.a \
+    libs/quazip/quazip/libquazip.a
+
 SOURCES += src/main.cpp \
-    src/mainwindow.cpp
-HEADERS += src/mainwindow.h
-FORMS += src/mainwindow.ui
+    src/mainwindow.cpp \
+    src/dialogversioncheck.cpp
+HEADERS += src/mainwindow.h \
+    src/dialogversioncheck.h
+FORMS += src/mainwindow.ui \
+    src/dialogversioncheck.ui
 RESOURCES += icons/resources.qrc
