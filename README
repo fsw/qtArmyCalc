@@ -10,11 +10,11 @@ project website: http://armycalc.com/
 BUILD INSTRUCTIONS
 
 cd twrs/
-zip -r ../twrs.zip .
+zip -r ../resources/twrs.zip .
 cd ..
 
 cd engine/
-zip -r ../engine.zip .
+zip -r ../resources/engine.zip .
 cd ..
 
 cd libs/libmaia

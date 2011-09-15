@@ -19,5 +19,4 @@ HEADERS += src/mainwindow.h \
     src/armyview.h
 FORMS += src/mainwindow.ui \
     src/dialogversioncheck.ui
-RESOURCES += icons/resources.qrc \
-    dist.qrc
+RESOURCES += resources/resources.qrc

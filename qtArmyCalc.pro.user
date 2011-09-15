@@ -76,7 +76,7 @@
   <valuemap type="QVariantMap">
    <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString">Debug</value>
    <valuelist key="abstractProcess.Environment" type="QVariantList">
-    <value type="QString">DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-EBACYhyETz,guid=b3d9e6ffa6aaa247221e00824e70e540</value>
+    <value type="QString">DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-Gu4sW6dDoH,guid=7c42ee5aa853e090a49f74554e72332b</value>
     <value type="QString">DEFAULTS_PATH=/usr/share/gconf/fluxbox.default.path</value>
     <value type="QString">DESKTOP_SESSION=fluxbox</value>
     <value type="QString">DISPLAY=:0.0</value>
@@ -87,8 +87,8 @@
     <value type="QString">GDMSESSION=fluxbox</value>
     <value type="QString">GDM_KEYBOARD_LAYOUT=pl</value>
     <value type="QString">GDM_LANG=en_US.utf8</value>
-    <value type="QString">GNOME_KEYRING_CONTROL=/tmp/keyring-ruO4gd</value>
-    <value type="QString">GNOME_KEYRING_PID=1336</value>
+    <value type="QString">GNOME_KEYRING_CONTROL=/tmp/keyring-f7JPLV</value>
+    <value type="QString">GNOME_KEYRING_PID=1323</value>
     <value type="QString">GTK_MODULES=canberra-gtk-module</value>
     <value type="QString">HOME=/home/fsw</value>
     <value type="QString">LANG=en_US.UTF-8</value>
@@ -103,13 +103,13 @@
     <value type="QString">SHELL=/bin/bash</value>
     <value type="QString">SHLVL=1</value>
     <value type="QString">SPEECHD_PORT=7560</value>
-    <value type="QString">SSH_AGENT_PID=1389</value>
-    <value type="QString">SSH_AUTH_SOCK=/tmp/ssh-ZCChzA1354/agent.1354</value>
+    <value type="QString">SSH_AGENT_PID=1376</value>
+    <value type="QString">SSH_AUTH_SOCK=/tmp/ssh-HQyBDY1341/agent.1341</value>
     <value type="QString">USER=fsw</value>
     <value type="QString">USERNAME=fsw</value>
-    <value type="QString">XAUTHORITY=/var/run/gdm/auth-for-fsw-pf7A4t/database</value>
+    <value type="QString">XAUTHORITY=/var/run/gdm/auth-for-fsw-hUwwnS/database</value>
     <value type="QString">XDG_CONFIG_DIRS=/etc/xdg/xdg-fluxbox:/etc/xdg</value>
-    <value type="QString">XDG_SESSION_COOKIE=208d7ca16c740ec2e0dc0f4e4c8a7091-1316021568.27433-724507433</value>
+    <value type="QString">XDG_SESSION_COOKIE=208d7ca16c740ec2e0dc0f4e4c8a7091-1316107050.815799-851012868</value>
     <value type="QString">_=/usr/bin/nautilus</value>
    </valuelist>
    <valuelist key="abstractProcess.arguments" type="QVariantList">
@@ -129,7 +129,7 @@
   <valuemap type="QVariantMap">
    <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString">Debug</value>
    <valuelist key="abstractProcess.Environment" type="QVariantList">
-    <value type="QString">DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-EBACYhyETz,guid=b3d9e6ffa6aaa247221e00824e70e540</value>
+    <value type="QString">DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-Gu4sW6dDoH,guid=7c42ee5aa853e090a49f74554e72332b</value>
     <value type="QString">DEFAULTS_PATH=/usr/share/gconf/fluxbox.default.path</value>
     <value type="QString">DESKTOP_SESSION=fluxbox</value>
     <value type="QString">DISPLAY=:0.0</value>
@@ -140,8 +140,8 @@
     <value type="QString">GDMSESSION=fluxbox</value>
     <value type="QString">GDM_KEYBOARD_LAYOUT=pl</value>
     <value type="QString">GDM_LANG=en_US.utf8</value>
-    <value type="QString">GNOME_KEYRING_CONTROL=/tmp/keyring-ruO4gd</value>
-    <value type="QString">GNOME_KEYRING_PID=1336</value>
+    <value type="QString">GNOME_KEYRING_CONTROL=/tmp/keyring-f7JPLV</value>
+    <value type="QString">GNOME_KEYRING_PID=1323</value>
     <value type="QString">GTK_MODULES=canberra-gtk-module</value>
     <value type="QString">HOME=/home/fsw</value>
     <value type="QString">LANG=en_US.UTF-8</value>
@@ -156,13 +156,13 @@
     <value type="QString">SHELL=/bin/bash</value>
     <value type="QString">SHLVL=1</value>
     <value type="QString">SPEECHD_PORT=7560</value>
-    <value type="QString">SSH_AGENT_PID=1389</value>
-    <value type="QString">SSH_AUTH_SOCK=/tmp/ssh-ZCChzA1354/agent.1354</value>
+    <value type="QString">SSH_AGENT_PID=1376</value>
+    <value type="QString">SSH_AUTH_SOCK=/tmp/ssh-HQyBDY1341/agent.1341</value>
     <value type="QString">USER=fsw</value>
     <value type="QString">USERNAME=fsw</value>
-    <value type="QString">XAUTHORITY=/var/run/gdm/auth-for-fsw-pf7A4t/database</value>
+    <value type="QString">XAUTHORITY=/var/run/gdm/auth-for-fsw-hUwwnS/database</value>
     <value type="QString">XDG_CONFIG_DIRS=/etc/xdg/xdg-fluxbox:/etc/xdg</value>
-    <value type="QString">XDG_SESSION_COOKIE=208d7ca16c740ec2e0dc0f4e4c8a7091-1316021568.27433-724507433</value>
+    <value type="QString">XDG_SESSION_COOKIE=208d7ca16c740ec2e0dc0f4e4c8a7091-1316107050.815799-851012868</value>
     <value type="QString">_=/usr/bin/nautilus</value>
    </valuelist>
    <value key="abstractProcess.IgnoreReturnValue" type="bool">false</value>
@@ -179,7 +179,7 @@
   <valuemap type="QVariantMap">
    <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString">Debug</value>
    <valuelist key="abstractProcess.Environment" type="QVariantList">
-    <value type="QString">DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-EBACYhyETz,guid=b3d9e6ffa6aaa247221e00824e70e540</value>
+    <value type="QString">DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-Gu4sW6dDoH,guid=7c42ee5aa853e090a49f74554e72332b</value>
     <value type="QString">DEFAULTS_PATH=/usr/share/gconf/fluxbox.default.path</value>
     <value type="QString">DESKTOP_SESSION=fluxbox</value>
     <value type="QString">DISPLAY=:0.0</value>
@@ -190,8 +190,8 @@
     <value type="QString">GDMSESSION=fluxbox</value>
     <value type="QString">GDM_KEYBOARD_LAYOUT=pl</value>
     <value type="QString">GDM_LANG=en_US.utf8</value>
-    <value type="QString">GNOME_KEYRING_CONTROL=/tmp/keyring-ruO4gd</value>
-    <value type="QString">GNOME_KEYRING_PID=1336</value>
+    <value type="QString">GNOME_KEYRING_CONTROL=/tmp/keyring-f7JPLV</value>
+    <value type="QString">GNOME_KEYRING_PID=1323</value>
     <value type="QString">GTK_MODULES=canberra-gtk-module</value>
     <value type="QString">HOME=/home/fsw</value>
     <value type="QString">LANG=en_US.UTF-8</value>
@@ -206,13 +206,13 @@
     <value type="QString">SHELL=/bin/bash</value>
     <value type="QString">SHLVL=1</value>
     <value type="QString">SPEECHD_PORT=7560</value>
-    <value type="QString">SSH_AGENT_PID=1389</value>
-    <value type="QString">SSH_AUTH_SOCK=/tmp/ssh-ZCChzA1354/agent.1354</value>
+    <value type="QString">SSH_AGENT_PID=1376</value>
+    <value type="QString">SSH_AUTH_SOCK=/tmp/ssh-HQyBDY1341/agent.1341</value>
     <value type="QString">USER=fsw</value>
     <value type="QString">USERNAME=fsw</value>
-    <value type="QString">XAUTHORITY=/var/run/gdm/auth-for-fsw-pf7A4t/database</value>
+    <value type="QString">XAUTHORITY=/var/run/gdm/auth-for-fsw-hUwwnS/database</value>
     <value type="QString">XDG_CONFIG_DIRS=/etc/xdg/xdg-fluxbox:/etc/xdg</value>
-    <value type="QString">XDG_SESSION_COOKIE=208d7ca16c740ec2e0dc0f4e4c8a7091-1316021568.27433-724507433</value>
+    <value type="QString">XDG_SESSION_COOKIE=208d7ca16c740ec2e0dc0f4e4c8a7091-1316107050.815799-851012868</value>
     <value type="QString">_=/usr/bin/nautilus</value>
    </valuelist>
    <value key="abstractProcess.IgnoreReturnValue" type="bool">true</value>

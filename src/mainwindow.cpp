@@ -27,7 +27,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(addTabButton, SIGNAL(pressed()), this, SLOT(on_actionNew_triggered()));
 
     filesPath = QDir::homePath()+"/armycalc/";
-
+    ui->tabWidget->setVisible(false);
 
     //TODO check for corruption? recreate?
     if(!QDir(filesPath).exists()){
@@ -180,12 +180,10 @@ void MainWindow::on_actionNew_triggered()
         ArmyView * av = new ArmyView( this, filesPath + "engine/qtbody.html" , path );
 
         ui->tabWidget->addTab(av,QString("New Army"));
-
-
-
-
-
         ui->tabWidget->setCurrentWidget(av);
+        ui->tabWidget->setVisible(true);
+        ui->background->setVisible(false);
+
     }
 
 
@@ -319,6 +317,12 @@ void MainWindow::on_tabWidget_tabCloseRequested(int index)
     ArmyView * av = (ArmyView *)ui->tabWidget->widget(index);
     ui->tabWidget->removeTab(index);
     delete av;
+
+    //when there are no tabs left
+    if(!ui->tabWidget->count()){
+        ui->tabWidget->setVisible(false);
+        ui->background->setVisible(true);
+    }
 }
 
 void MainWindow::on_tabWidget_currentChanged(int index)
