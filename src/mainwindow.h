@@ -39,6 +39,7 @@ public:
     QString engineDownloadPath;
     QString filesPath;
     void unzipEngine();
+    void unzipTwrs();
     void reloadEngine();
 
 protected:
@@ -49,6 +50,7 @@ private:
     MaiaXmlRpcClient *rpcClient;
     QString engineVersion;
     DialogVersionCheck* dialogVersionCheck;
+    void unzipHelper(QString file);
 
 private slots:
 

@@ -18,12 +18,39 @@ MainWindow::MainWindow(QWidget *parent) :
 
 
     filesPath = QDir::homePath()+"/armycalc/";
+
+
     //TODO check for corruption? recreate?
     if(!QDir(filesPath).exists()){
         QDir().mkdir(filesPath);
         QDir().mkdir(filesPath+"/engine/");
         QDir().mkdir(filesPath+"/twrs/");
         QDir().mkdir(filesPath+"/armies/");
+
+        QFile engine_infile( ":/engine.zip" );
+        engine_infile.open(QIODevice::ReadOnly);
+        QFile engine_outfile( filesPath + "engine.zip" );
+        engine_outfile.open(QIODevice::WriteOnly);
+        engine_outfile.write(engine_infile.readAll());
+        engine_outfile.close();
+        engine_infile.close();
+
+        this->unzipEngine();
+
+        QFile twrs_infile( ":/twrs.zip" );
+        twrs_infile.open(QIODevice::ReadOnly);
+        QFile twrs_outfile( filesPath + "twrs.zip" );
+        twrs_outfile.open(QIODevice::WriteOnly);
+        twrs_outfile.write(twrs_infile.readAll());
+        twrs_outfile.close();
+        twrs_infile.close();
+
+        this->unzipTwrs();
+
+        QMessageBox::information(this,
+                                 "armycalc folder created",
+                                 "I was unable to find 'armycalc' folder.\n It was created in " + filesPath );
+
     }
 
     QWebSettings *settings = ui->webView->settings();
@@ -187,10 +214,8 @@ void MainWindow::engineDownloadFinished(QNetworkReply*)
 
 }
 
-void MainWindow::unzipEngine()
-{
-
-    QuaZip* zip = new QuaZip(filesPath + "engine.zip");
+void MainWindow::unzipHelper(QString file){
+    QuaZip* zip = new QuaZip(filesPath + file + ".zip");
     zip->open(QuaZip::mdUnzip);
 
     if(zip->getZipError()==UNZ_OK) {
@@ -204,9 +229,9 @@ void MainWindow::unzipEngine()
 
             //this looks lame but works
             if(QString(zfile.getActualFileName()).right(1)=="/"){
-                QDir().mkdir(filesPath + "engine/" + zfile.getActualFileName());
+                QDir().mkdir(filesPath + file + "/" + zfile.getActualFileName());
             } else {
-                QFile outfile( filesPath + "engine/" + zfile.getActualFileName() );
+                QFile outfile( filesPath + file + "/" + zfile.getActualFileName() );
                 outfile.open(QIODevice::WriteOnly);
                 outfile.write(zfile.readAll());
                 outfile.close();
@@ -221,6 +246,17 @@ void MainWindow::unzipEngine()
     //qDebug() << zip->getZipError();
 
     delete zip;
+}
+
+void MainWindow::unzipEngine(){
+
+    this->unzipHelper("engine");
+
+}
+
+void MainWindow::unzipTwrs(){
+
+    this->unzipHelper("twrs");
 
 }
 

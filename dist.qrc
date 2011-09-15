@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file>engine.zip</file>
+        <file>twrs.zip</file>
+    </qresource>
+</RCC>

@@ -100,7 +100,7 @@ void DialogVersionCheck::engineDownloadFinished()
         file.open(QIODevice::WriteOnly);
         file.write(currentDownload->readAll());
         file.close();
-                
+        mw->unzipEngine();
 
 
         ui->progressBar->setVisible( false );
@@ -116,6 +116,5 @@ void DialogVersionCheck::on_finishUpdateButton_clicked()
 
     this->accept();
     MainWindow* mw = ((MainWindow *)this->parentWidget());
-    mw->unzipEngine();
     mw->reloadEngine();
 }

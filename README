@@ -9,6 +9,14 @@ project website: http://armycalc.com/
 
 BUILD INSTRUCTIONS
 
+cd twrs/
+zip -r ../twrs.zip .
+cd ..
+
+cd engine/
+zip -r ../engine.zip .
+cd ..
+
 cd libs/libmaia
 qmake
 make
