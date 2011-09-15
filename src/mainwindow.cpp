@@ -8,6 +8,9 @@
 #include "dialogversioncheck.h"
 #include "quazip.h"
 #include "quazipfile.h"
+#include "armyview.h"
+
+
 
 MainWindow::MainWindow(QWidget *parent) :
         QMainWindow(parent),
@@ -15,7 +18,13 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    //QPixmap pixmap;
+    //pixmap.load(":/icons/about.png");
+    //ui->centralWidget->setStyleSheet( setPixmap(pixmap);
 
+    addTabButton = new QPushButton("+",this);
+    ui->tabWidget->setCornerWidget(addTabButton);          
+    connect(addTabButton, SIGNAL(pressed()), this, SLOT(on_actionNew_triggered()));
 
     filesPath = QDir::homePath()+"/armycalc/";
 
@@ -53,12 +62,8 @@ MainWindow::MainWindow(QWidget *parent) :
 
     }
 
-    QWebSettings *settings = ui->webView->settings();
-    settings->setAttribute(QWebSettings::JavascriptEnabled, true);
-    settings->setAttribute(QWebSettings::PluginsEnabled, true);
-    settings->setAttribute(QWebSettings::AutoLoadImages, true);
-    settings->setAttribute(QWebSettings::JavaEnabled, false);
-    settings->setAttribute(QWebSettings::JavascriptCanOpenWindows, true);
+
+    //ui->centralWidget->layout()->addWidget(inspector);
 
 
     this->reloadEngine();
@@ -79,6 +84,7 @@ MainWindow::~MainWindow()
     delete rpcClient;
     delete download_manager;
     delete dialogVersionCheck;
+    delete addTabButton;
     delete ui;
 }
 
@@ -97,15 +103,8 @@ void MainWindow::changeEvent(QEvent *e)
 
 void MainWindow::on_actionChange_triggered()
 {
-    QDir directory;
-    QString path = QFileDialog::getExistingDirectory (this, tr("Directory"), directory.path());
-    if ( path.isNull() == false )
-    {
-        directory.setPath(path);
-        //fillList();
-        QWebFrame* f = ui->webView->page()->mainFrame();
-        f->evaluateJavaScript(QString("calc.loadTWR('") + path + "/')");
-    }
+
+
 
     // QFileDialog::setOption with value QFileDialog::ShowDirsOnly
 }
@@ -172,8 +171,32 @@ void MainWindow::on_actionTest_connection_triggered()
 
 void MainWindow::on_actionNew_triggered()
 {
-    ui->webView->page()->mainFrame()->evaluateJavaScript("calc.newArmy()");
+
+    QString path = QFileDialog::getExistingDirectory (this, tr("Directory"), filesPath+"/twrs/");
+    if ( path.isNull() == false )
+    {
+        //directory.setPath(path);
+        //fillList();
+        ArmyView * av = new ArmyView( this, filesPath + "engine/qtbody.html" , path );
+
+        ui->tabWidget->addTab(av,QString("New Army"));
+
+
+
+
+
+        ui->tabWidget->setCurrentWidget(av);
+    }
+
+
+    //QWebView* wv = (QWebView*)ui->tabWidget->widget(ui->tabWidget->currentIndex());
+
+    //QWebFrame* f = wv->page()->mainFrame();
+
+
 }
+
+
 
 void MainWindow::on_actionSave_triggered()
 {
@@ -278,9 +301,40 @@ void MainWindow::reloadEngine()
 
     this->setWindowTitle(QString("ArmyCalc - version ") + ACE_VERSION + " - engine version " + engineVersion);
 
-    ui->webView->setUrl( QUrl( filesPath + "engine/qtbody.html" ));
+    //TODO: warning!
+    // save all?
+    for(int i=0;i<ui->tabWidget->count();i++){
+        ArmyView * wv = (ArmyView *)ui->tabWidget->widget(i);
+        wv->setUrl( QUrl( filesPath + "engine/qtbody.html" ));
+    }
 
     //this->close();
     //QCoreApplication::exit(1000);
+
+}
+
+void MainWindow::on_tabWidget_tabCloseRequested(int index)
+{
+
+    ArmyView * av = (ArmyView *)ui->tabWidget->widget(index);
+    ui->tabWidget->removeTab(index);
+    delete av;
+}
+
+void MainWindow::on_tabWidget_currentChanged(int index)
+{
+
+    ArmyView * av = (ArmyView *)ui->tabWidget->widget(index);
+
+}
+
+void MainWindow::on_actionDebug_console_triggered()
+{
+    if(ui->tabWidget->currentIndex() > -1){
+
+        ArmyView * av = (ArmyView *)ui->tabWidget->widget(ui->tabWidget->currentIndex());
+        av->showInspector();
+
+    }
 
 }

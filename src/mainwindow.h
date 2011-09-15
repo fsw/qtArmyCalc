@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <QNetworkAccessManager>
 #include "maiaXmlRpcClient.h"
+#include <QPushButton>
 
 #define ACE_VERSION "2.0"
 #define ACE_APIURL "http://armycalc.com/api/"
@@ -51,9 +52,12 @@ private:
     QString engineVersion;
     DialogVersionCheck* dialogVersionCheck;
     void unzipHelper(QString file);
+    QPushButton* addTabButton;
 
 private slots:
-
+    void on_actionDebug_console_triggered();
+    void on_tabWidget_currentChanged(int index);
+    void on_tabWidget_tabCloseRequested(int index);
     void engineDownloadFinished(QNetworkReply*);
     void on_actionCheck_for_new_version_triggered();
     void on_actionAbout_triggered();

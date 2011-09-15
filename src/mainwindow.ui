@@ -27,7 +27,7 @@
        <enum>QTabWidget::Rounded</enum>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>-1</number>
       </property>
       <property name="iconSize">
        <size>
@@ -44,28 +44,6 @@
       <property name="movable">
        <bool>true</bool>
       </property>
-      <widget class="QWidget" name="army">
-       <attribute name="title">
-        <string>Army</string>
-       </attribute>
-       <layout class="QVBoxLayout" name="verticalLayout_2">
-        <property name="spacing">
-         <number>0</number>
-        </property>
-        <property name="margin">
-         <number>0</number>
-        </property>
-        <item>
-         <widget class="QWebView" name="webView">
-          <property name="url">
-           <url>
-            <string>about:blank</string>
-           </url>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </widget>
      </widget>
     </item>
    </layout>
@@ -79,12 +57,6 @@
      <height>23</height>
     </rect>
    </property>
-   <widget class="QMenu" name="menuRuleset">
-    <property name="title">
-     <string>Ruleset</string>
-    </property>
-    <addaction name="actionChange"/>
-   </widget>
    <widget class="QMenu" name="menuHelp">
     <property name="title">
      <string>Help</string>
@@ -115,9 +87,15 @@
     <addaction name="separator"/>
     <addaction name="actionCheck_for_new_version"/>
    </widget>
+   <widget class="QMenu" name="menuTools">
+    <property name="title">
+     <string>Tools</string>
+    </property>
+    <addaction name="actionDebug_console"/>
+   </widget>
    <addaction name="menuArmy"/>
-   <addaction name="menuRuleset"/>
    <addaction name="menuArmyCalc"/>
+   <addaction name="menuTools"/>
    <addaction name="menuHelp"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
@@ -127,31 +105,21 @@
    <attribute name="toolBarBreak">
     <bool>false</bool>
    </attribute>
-   <addaction name="actionChange"/>
-   <addaction name="separator"/>
    <addaction name="actionNew"/>
    <addaction name="actionOpen"/>
    <addaction name="actionSave"/>
    <addaction name="actionSave_as"/>
    <addaction name="actionSave_army_online"/>
+   <addaction name="separator"/>
    <addaction name="actionPrint"/>
    <addaction name="separator"/>
    <addaction name="actionAbout"/>
    <addaction name="actionExit"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
-  <action name="actionChange">
-   <property name="icon">
-    <iconset resource="../icons/resources.qrc">
-     <normaloff>:/icons/folder.png</normaloff>:/icons/folder.png</iconset>
-   </property>
-   <property name="text">
-    <string>Change...</string>
-   </property>
-  </action>
   <action name="actionNew">
    <property name="icon">
-    <iconset resource="../icons/resources.qrc">
+    <iconset>
      <normaloff>:/icons/new.png</normaloff>:/icons/new.png</iconset>
    </property>
    <property name="text">
@@ -160,7 +128,7 @@
   </action>
   <action name="actionOpen">
    <property name="icon">
-    <iconset resource="../icons/resources.qrc">
+    <iconset>
      <normaloff>:/icons/open.png</normaloff>:/icons/open.png</iconset>
    </property>
    <property name="text">
@@ -169,7 +137,7 @@
   </action>
   <action name="actionSave">
    <property name="icon">
-    <iconset resource="../icons/resources.qrc">
+    <iconset>
      <normaloff>:/icons/save.png</normaloff>:/icons/save.png</iconset>
    </property>
    <property name="text">
@@ -178,7 +146,7 @@
   </action>
   <action name="actionPrint">
    <property name="icon">
-    <iconset resource="../icons/resources.qrc">
+    <iconset>
      <normaloff>:/icons/print.png</normaloff>:/icons/print.png</iconset>
    </property>
    <property name="text">
@@ -187,7 +155,7 @@
   </action>
   <action name="actionSave_army_online">
    <property name="icon">
-    <iconset resource="../icons/resources.qrc">
+    <iconset>
      <normaloff>:/icons/save_online.png</normaloff>:/icons/save_online.png</iconset>
    </property>
    <property name="text">
@@ -196,7 +164,7 @@
   </action>
   <action name="actionCheck_for_new_version">
    <property name="icon">
-    <iconset resource="../icons/resources.qrc">
+    <iconset>
      <normaloff>:/icons/online.png</normaloff>:/icons/online.png</iconset>
    </property>
    <property name="text">
@@ -208,7 +176,7 @@
   </action>
   <action name="actionExit">
    <property name="icon">
-    <iconset resource="../icons/resources.qrc">
+    <iconset>
      <normaloff>:/icons/quit.png</normaloff>:/icons/quit.png</iconset>
    </property>
    <property name="text">
@@ -217,7 +185,7 @@
   </action>
   <action name="actionAbout">
    <property name="icon">
-    <iconset resource="../icons/resources.qrc">
+    <iconset>
      <normaloff>:/icons/about.png</normaloff>:/icons/about.png</iconset>
    </property>
    <property name="text">
@@ -226,7 +194,7 @@
   </action>
   <action name="actionTest_connection">
    <property name="icon">
-    <iconset resource="../icons/resources.qrc">
+    <iconset>
      <normaloff>:/icons/online.png</normaloff>:/icons/online.png</iconset>
    </property>
    <property name="text">
@@ -235,24 +203,20 @@
   </action>
   <action name="actionSave_as">
    <property name="icon">
-    <iconset resource="../icons/resources.qrc">
+    <iconset>
      <normaloff>:/icons/save.png</normaloff>:/icons/save.png</iconset>
    </property>
    <property name="text">
     <string>Save as...</string>
    </property>
   </action>
+  <action name="actionDebug_console">
+   <property name="text">
+    <string>inspect current tab</string>
+   </property>
+  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <customwidgets>
-  <customwidget>
-   <class>QWebView</class>
-   <extends>QWidget</extends>
-   <header>QtWebKit/QWebView</header>
-  </customwidget>
- </customwidgets>
- <resources>
-  <include location="../icons/resources.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>
