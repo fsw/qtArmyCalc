@@ -3,6 +3,20 @@
 
 #include <QWebView>
 #include <QWebInspector>
+#include <QObject>
+
+class ArmyViewCallback : public QObject
+{
+Q_OBJECT
+    public:
+        ArmyViewCallback();
+        ~ArmyViewCallback();
+
+    public slots:
+        void setStatus(QString string);
+
+};
+
 
 class ArmyView : public QWebView
 {
@@ -12,6 +26,7 @@ public:
     ~ArmyView();
     void showInspector( void );
     QString twrpath;
+    ArmyViewCallback* callback;
 
 private:
     QWebInspector *inspector;

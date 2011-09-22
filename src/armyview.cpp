@@ -1,6 +1,15 @@
 #include "armyview.h"
 #include <QWebFrame>
 
+
+
+
+ArmyViewCallback::ArmyViewCallback(){}
+ArmyViewCallback::~ArmyViewCallback(){}
+
+void ArmyViewCallback::setStatus(QString string){}
+
+
 ArmyView::ArmyView(QWidget *parent, QString engineurl, QString twrpath) :
     QWebView(parent)
 {
