@@ -22,7 +22,7 @@ MainWindow::MainWindow(QWidget *parent) :
     //pixmap.load(":/icons/about.png");
     //ui->centralWidget->setStyleSheet( setPixmap(pixmap);
 
-    addTabButton = new QPushButton("+",this);
+    addTabButton = new QPushButton(QIcon(":/icons/new.png"),"+",this);
     ui->tabWidget->setCornerWidget(addTabButton);          
     connect(addTabButton, SIGNAL(pressed()), this, SLOT(on_actionNew_triggered()));
 
